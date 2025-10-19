@@ -51,18 +51,6 @@ export const ContactSection = () => {
 
                         <div className="flex items-start space-x-4">
                             <div className="p-3 rounded-full bg-primary/10">
-                                <Phone className="h-6 w-6 text-primary"/>
-                            </div>
-                            <div>
-                                <h4 className="font-medium"> Phone</h4>
-                                <a href="tel:+639949678182" className="text-muted-foreground hover:text-primary transition-colors">
-                                    +63 994 967 8182
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start space-x-4">
-                            <div className="p-3 rounded-full bg-primary/10">
                                 <MapPin className="h-6 w-6 text-primary"/>
                             </div>
                             <div>
@@ -73,63 +61,36 @@ export const ContactSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="pt-8">
-                        <h4 className="font-medium mb-4">Connect With Me</h4>
-                        <div className="flex space-x-4 justify-center">
-                            <a target="_blank" href="www.linkedin.com/in/mark-angelo-aboy-21431b256">
-                                <Linkedin/>
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <div className="bg-card p-8 rounded-lg shadow-xs" onSubmit={handleSubmit}>
                     <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
-                    <form className="space-y-6">
+                    <div className="space-y-6">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium mb-2"> Your Name</label>
-                            <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            required 
-                            className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                            placeholder="John Smith"
-                            />
+                            <label htmlFor="email" className="block text-sm font-medium mb-2">Send an Email to my Gmail</label>
+                            <a 
+                                href="mailto:mark.angelo.aboy@gmail.com?subject=Subject%20Here&body=Body%20Here"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary flex items-center justify-center"
+                            >
+                                <Mail className="h-6 w-6 text-primary" />
+                                Compose Email
+                            </a>
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium mb-2"> Your Email</label>
-                            <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            required 
-                            className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                            placeholder="johnsmith@gmail.com"
-                            />
+                            <label htmlFor="linkedin" className="block text-sm font-medium mb-2">Connect with me on LinkedIn</label>
+                            <a 
+                                href="https://linkedin.com/in/mark-angelo-aboy-21431b256"
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary flex items-center justify-center gap-2" // added gap-2 for spacing between icon and text
+                            >
+                                <Linkedin className="h-6 w-6 text-primary" /> {/* Icon size and color */}
+                                Open LinkedIn Profile
+                            </a>
                         </div>
-
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium mb-2"> Your Message</label>
-                            <textarea 
-                            id="message" 
-                            name="message" 
-                            required 
-                            className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
-                            placeholder="Hello, I'd like to talk about..."
-                            />
-                        </div>
-                        <button 
-                        type="submit" 
-                        disabled={isSubmitting}
-                        className={cn(
-                            "cosmic-button w-full flex items-center justify-center gap-2",
-                            
-                        )}>
-                            {isSubmitting ? "Sending..." : "Send Message"}
-                            <Send size={16} />
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
