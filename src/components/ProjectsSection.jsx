@@ -152,16 +152,6 @@ export const ProjectsSection = () => {
                 <div className="flex justify-center">
                   <div className="grid grid-cols-2 gap-4">
                     <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                      <span className="text-sm">Try Demo</span>
-                    </a>
-
-                    <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
