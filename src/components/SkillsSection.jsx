@@ -29,7 +29,7 @@ const skills = [
   { name: "Maven", category: "tools" }
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+const categories = ["all", "frontend", "backend", "tools", "database"];
 
 export const SkillsSection = () => {
     const [activeCategory, setActiveCategory] =useState("all")
