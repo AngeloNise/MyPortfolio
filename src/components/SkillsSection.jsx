@@ -26,7 +26,8 @@ const skills = [
   { name: "Postman", category: "tools" },
   { name: "VS Code", category: "tools" },
   { name: "IntelliJ IDEA", category: "tools" },
-  { name: "Maven", category: "tools" }
+  { name: "Maven", category: "tools" },
+  { name: "Figma", category: "tools" }
 ];
 
 const categories = ["all", "frontend", "backend", "tools", "database"];
