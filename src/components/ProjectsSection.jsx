@@ -72,7 +72,7 @@ const figmaProjects = [
   },
   {
     id: 2,
-    title: "A Web-Based System for Student Affairs Activities Document Processing, Management, and Status Monitoring",
+    title: "OSSACT: Web System for Student Affairs Activity Management - Mockup Prototype",
     description:
       "This is a prototype for a web-based system designed to streamline the submission, management, and tracking of student activity documents. It provides real-time status monitoring, an admin dashboard for staff, and role-based access for secure document handling. Developed to optimize student activity management, the system uses clean design principles for easy navigation and an intuitive user interface.",
     images: [
