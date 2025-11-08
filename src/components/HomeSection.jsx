@@ -14,12 +14,12 @@ export const HomeSection =() => {
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                    I’m an aspiring <span className="font-semibold">Full-Stack Web Developer</span> 
-                    passionate about building modern, user-friendly applications. 
-                    I developed a <span className="font-semibold">POS system</span> using 
+                    I’m an aspiring <span className="font-semibold">Full-Stack Web Developer </span> 
+                    passionate about building modern, responsive design, user-friendly applications. 
+                    I developed a <span className="font-semibold">POS system </span> using 
                     <span className="font-semibold"> React.js</span> and 
                     <span className="font-semibold"> Spring Boot</span>, and created a 
-                    <span className="font-semibold"> web-based student affairs management system</span> 
+                    <span className="font-semibold"> web-based student affairs management system </span> 
                     with <span className="font-semibold">PHP Laravel</span>, 
                     <span className="font-semibold"> HTML</span>, 
                     <span className="font-semibold"> CSS</span>, 

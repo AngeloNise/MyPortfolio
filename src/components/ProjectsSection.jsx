@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ExternalLink, Github, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, ChevronLeft, ChevronRight, ArrowRight, Figma } from "lucide-react";
 
 const projects = [
   {
@@ -45,11 +45,68 @@ const projects = [
   },
 ];
 
+const figmaProjects = [
+  {
+    id: 1,
+    title: "Valorant Coaching Platform",
+    description:
+      "A dynamic platform prototype built in Figma that connects Valorant players who wish to act as both coaches and coachees. The platform focuses on aim and positioning improvement, creating a supportive community for players. It excludes advanced gaming features and operates with no subscription fees.",
+    images: [
+      "/prototypes/dguide.png",
+      "/prototypes/dguide1.png",
+      "/prototypes/dguide2.png",
+      "/prototypes/dguide3.png",
+      "/prototypes/dguide4.png",
+      "/prototypes/dguide5.png",
+      "/prototypes/dguide6.png",
+    ],
+    tags: [
+      "UI/UX Design",
+      "Figma",
+      "Prototyping",
+      "Gaming Platform",
+      "Coaching & Training",
+    ],
+    demoUrl: "https://www.figma.com/proto/6dQU9C6NG6HQayfM3XNq70/D-Guide-PROTOTYPE?node-id=104-38&t=f2RrNty52wcQnqDL-1",
+    figmaUrl: "https://www.figma.com/design/6dQU9C6NG6HQayfM3XNq70/D-Guide-Prototype?node-id=104-38&t=f2RrNty52wcQnqDL-1",
+  },
+  {
+    id: 2,
+    title: "A Web-Based System for Student Affairs Activities Document Processing, Management, and Status Monitoring",
+    description:
+      "This is a prototype for a web-based system designed to streamline the submission, management, and tracking of student activity documents. It provides real-time status monitoring, an admin dashboard for staff, and role-based access for secure document handling. Developed to optimize student activity management, the system uses clean design principles for easy navigation and an intuitive user interface.",
+    images: [
+      "/prototypes/capstone.png",
+      "/prototypes/capstone1.png",
+      "/prototypes/capstone2.png",
+      "/prototypes/capstone3.png",
+      "/prototypes/capstone4.png",
+      "/prototypes/capstone5.png",
+      "/prototypes/capstone6.png",
+      "/prototypes/capstone7.png",
+      "/prototypes/capstone8.png",
+      "/prototypes/capstone9.png",
+      "/prototypes/capstone10.png",
+    ],
+    tags: [
+      "UI/UX Design",
+      "Figma",
+      "Prototyping",
+      "Document Management",
+      "Admin Dashboard",
+      "Web System"
+    ],
+    demoUrl: "https://www.figma.com/proto/DsswYGpG0SvUMYrMt25YXk/Mark-Angelo-Aboy-s-team-library?node-id=0-1&t=9d1Ly64KEoS5ukTx-1",
+    figmaUrl: "https://www.figma.com/design/DsswYGpG0SvUMYrMt25YXk/Capstone-Prototype?node-id=0-1&t=9d1Ly64KEoS5ukTx-1",
+  },
+];
+
 export const ProjectsSection = () => {
   const [modalData, setModalData] = useState({
     open: false,
     projectId: null,
     currentIndex: 0,
+    type: "projects", // "projects" or "figmaProjects"
   });
 
   useEffect(() => {
@@ -73,14 +130,14 @@ export const ProjectsSection = () => {
     };
   }, [modalData]);
 
-  const openModal = (projectId, index) => {
-    setModalData({ open: true, projectId, currentIndex: index });
+  const openModal = (projectId, index, type) => {
+    setModalData({ open: true, projectId, currentIndex: index, type });
   };
 
-  const closeModal = () => setModalData({ open: false, projectId: null, currentIndex: 0 });
+  const closeModal = () => setModalData({ open: false, projectId: null, currentIndex: 0, type: "projects" });
 
   const nextImage = () => {
-    const project = projects.find((p) => p.id === modalData.projectId);
+    const project = getProject();
     if (!project) return;
     setModalData((prev) => ({
       ...prev,
@@ -89,7 +146,7 @@ export const ProjectsSection = () => {
   };
 
   const prevImage = () => {
-    const project = projects.find((p) => p.id === modalData.projectId);
+    const project = getProject();
     if (!project) return;
     setModalData((prev) => ({
       ...prev,
@@ -98,23 +155,24 @@ export const ProjectsSection = () => {
     }));
   };
 
-  const project = modalData.open
-    ? projects.find((p) => p.id === modalData.projectId)
-    : null;
+  const getProject = () => {
+    const { projectId, type } = modalData;
+    const projectsList = type === "projects" ? projects : figmaProjects;
+    return projectsList.find((p) => p.id === projectId);
+  };
+
+  const project = getProject();
 
   return (
     <section id="projects" className="py-24 px-4 relative">
+      {/* Projects */}
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary"> Projects</span>
+          Featured <span className="text-primary">Projects</span>
         </h2>
-
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A showcase of my featured projects that highlight my skills in
-          full-stack web development, focusing on clean design, functionality,
-          and modern technologies.
-        </p>
-
+          A showcase of my featured projects that highlight my skills in 
+          full-stack web development, focusing on clean design, functionality, and modern technologies.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project, key) => (
             <div
@@ -123,7 +181,7 @@ export const ProjectsSection = () => {
             >
               <div
                 className="h-48 overflow-hidden cursor-pointer"
-                onClick={() => openModal(project.id, 0)}
+                onClick={() => openModal(project.id, 0, "projects")}
               >
                 <img
                   src={project.images[0]}
@@ -167,15 +225,90 @@ export const ProjectsSection = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-            <a 
-            className="cosmic-button w-fit flex items-center mx-auto gap-2" 
-            target="_blank"
-            href="https://github.com/AngeloNise">
-              Check My Github <ArrowRight size={16} />
-            </a>
-          </div>
+          <a
+          className="cosmic-button w-fit flex items-center mx-auto gap-2"
+          target="_blank"
+          href="https://github.com/AngeloNise">
+            Check My Github <ArrowRight size={16} />
+          </a>
+        </div>
       </div>
+      {/* End of Projects */}
 
+      {/* Figma */}
+      <div className="container mx-auto max-w-5xl">
+        <h2 className="mt-24 text-3xl md:text-4xl font-bold mb-4 text-center">
+          Featured <span className="text-primary">Prototype</span>
+        </h2>
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          A showcase of my featured prototype that highlights my skills in Figma, focusing on clean design, user experience, and interactive mockups.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {figmaProjects.map((figmaProject, key) => (
+            <div
+              key={key}
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+            >
+              <div
+                className="h-48 overflow-hidden cursor-pointer"
+                onClick={() => openModal(figmaProject.id, 0, "figmaProjects")}
+              >
+                <img
+                  src={figmaProject.images[0]}
+                  alt={figmaProject.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {figmaProject.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-primary/20 text-secondary-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-1">{figmaProject.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {figmaProject.description}
+                </p>
+
+                <div className="flex justify-center">
+                  <div className="grid grid-cols-2 gap-4">
+                    <a
+                      href={figmaProject.figmaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                    >
+                      <Figma size={20} />
+                      <span className="text-sm">View in Figma</span>
+                    </a>
+
+                    <a
+                      href={figmaProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                      <span className="text-sm">View Demo</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* End of Figma */}
+
+      {/* Modal */}
       {modalData.open && project && (
         <div
           className="fixed inset-0 bg-[rgba(0,0,0,0.6)] flex justify-center items-center z-50"
@@ -223,7 +356,6 @@ export const ProjectsSection = () => {
             </div>
           </div>
         </div>
-        
       )}
     </section>
   );

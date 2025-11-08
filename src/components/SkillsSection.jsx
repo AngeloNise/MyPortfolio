@@ -21,6 +21,7 @@ const skills = [
 
   // Tools
   { name: "Git/GitHub", category: "tools" },
+  { name: "SourceTree", category: "tools" },
   { name: "Postman", category: "tools" },
   { name: "VS Code", category: "tools" },
   { name: "IntelliJ IDEA", category: "tools" },
