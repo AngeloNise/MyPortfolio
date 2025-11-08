@@ -13,6 +13,7 @@ const skills = [
   // Backend
   { name: "Java (Spring Boot)", category: "backend" },
   { name: "PHP (Laravel)", category: "backend" },
+  { name: "Object-Oriented Programming", category: "backend" },
   { name: "RESTful APIs", category: "backend" },
   { name: "Microservices", category: "backend" },
 
