@@ -3,16 +3,19 @@ import {cn} from "@/lib/utils";
 
 const skills = [
   // Frontend
+  { name: "React.js", category: "frontend" },
+  { name: "Next.js", category: "frontend" },
+  { name: "PrimeReact", category: "frontend" },
+  { name: "JavaScript (ES6+)", category: "frontend" },
   { name: "HTML5", category: "frontend" },
   { name: "CSS3", category: "frontend" },
-  { name: "JavaScript (ES6+)", category: "frontend" },
-  { name: "React.js", category: "frontend" },
-  { name: "PrimeReact", category: "frontend" },
   { name: "Tailwind CSS", category: "frontend" },
+  { name: "TSX", category: "frontend" },
 
   // Backend
   { name: "Java (Spring Boot)", category: "backend" },
   { name: "PHP (Laravel)", category: "backend" },
+  { name: "Node.js", category: "backend" },
   { name: "Object-Oriented Programming", category: "backend" },
   { name: "RESTful APIs", category: "backend" },
   { name: "Microservices", category: "backend" },
@@ -22,6 +25,7 @@ const skills = [
 
   // Tools
   { name: "Git/GitHub", category: "tools" },
+  { name: "GitHub Desktop", category: "tools" },
   { name: "SourceTree", category: "tools" },
   { name: "Postman", category: "tools" },
   { name: "VS Code", category: "tools" },

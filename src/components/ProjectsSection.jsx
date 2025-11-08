@@ -14,7 +14,7 @@ const projects = [
     ],
     tags: [
       "Frontend: HTML, CSS, JavaScript",
-      "Backend: PHP Laravel",
+      "Backend: PHP Laravel, OOP",
       "Database: MySQL",
       "Hosting: Hostinger",
     ],
@@ -34,8 +34,8 @@ const projects = [
       "/projects/unistore4.png",
     ],
     tags: [
-      "Frontend: React.js",
-      "Backend: Spring Boot (Java)",
+      "Frontend: React.js, PrimeReact, Next.js, TSX",
+      "Backend: Spring Boot (Java), Node.js, OOP",
       "Database: MySQL",
       "Version Control: GitHub",
       "Architecture: Microservices, RESTful API",
